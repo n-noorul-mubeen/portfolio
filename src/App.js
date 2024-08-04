@@ -1,33 +1,36 @@
 import React from 'react';
 import { CssBaseline, Container, Typography, Card, CardContent, AppBar, Toolbar, Button, Grid, List, ListItem, ListItemText, ListItemIcon, Box, IconButton } from '@mui/material';
-import { Email, LinkedIn, GitHub } from '@mui/icons-material';
+import { Email, LinkedIn, GitHub, School, Work, Code, Star, VolunteerActivism } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as ScrollLink, Element } from 'react-scroll';
 import internshipCert from './assets/internship.png';
 
+// Create a vibrant theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#4CAF50',
+      main: '#FF5722', // Vibrant orange
     },
     secondary: {
-      main: '#FFC107',
+      main: '#00BCD4', // Vibrant cyan
     },
     text: {
-      primary: '#333',
-      secondary: '#555',
+      primary: '#212121', // Darker text for better contrast
+      secondary: '#757575',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#F5F5F5', // Light grey background
     },
   },
   typography: {
     h4: {
-      fontWeight: 600,
+      fontWeight: 700,
+      color: '#FF5722', // Vibrant color for headings
       marginBottom: '16px',
     },
     h5: {
       fontWeight: 500,
+      color: '#00BCD4', // Vibrant color for subheadings
       marginBottom: '12px',
     },
     body1: {
@@ -41,8 +44,9 @@ const theme = createTheme({
         root: {
           marginBottom: '20px',
           padding: '20px',
-          borderRadius: '8px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+          borderRadius: '12px',
+          boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
+          backgroundColor: '#FFFFFF', // White card background
         },
       },
     },
@@ -52,6 +56,12 @@ const theme = createTheme({
           marginBottom: '10px',
           borderRadius: '20px',
           textTransform: 'none',
+          fontWeight: 600,
+          backgroundColor: '#FF5722', // Vibrant orange for buttons
+          color: '#FFFFFF',
+          '&:hover': {
+            backgroundColor: '#E64A19', // Darker orange on hover
+          },
         },
       },
     },
@@ -59,6 +69,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+          backgroundColor: '#FF5722', // Vibrant orange for the AppBar
         },
       },
     },
@@ -66,9 +77,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           padding: '20px 0',
-          backgroundColor: '#4CAF50',
+          backgroundColor: '#FF5722',
           textAlign: 'center',
-          color: '#fff',
+          color: '#FFFFFF',
         },
       },
     },
@@ -82,19 +93,22 @@ const App = () => {
       institution: "Vellore Institute Of Technology, Chennai Campus",
       date: "Sep. 2022 – July 2026 (Expected)",
       cgpa: "9.26 (Current)",
-      coursework: "Data Structures and Algorithms, Operating Systems, Computer Networks, Design and Analysis Of Algorithms"
+      coursework: "Data Structures and Algorithms, Operating Systems, Computer Networks, Design and Analysis Of Algorithms",
+      icon: <School />,
     },
     {
       degree: "AISSCE",
       institution: "DAV Public School, Velachery, Chennai",
       date: "July 2022",
-      percentage: "95.8%"
+      percentage: "95.8%",
+      icon: <School />,
     },
     {
       degree: "AISSE",
       institution: "Unity Public School, Chennai",
       date: "July 2020",
-      percentage: "95.2%"
+      percentage: "95.2%",
+      icon: <School />,
     }
   ];
 
@@ -112,7 +126,8 @@ const App = () => {
           <li>Utilized pandas for reading and writing Excel files, optimizing the storage and retrieval of user access tokens.</li>
         </ul>
       ),
-      certificate: internshipCert
+      certificate: internshipCert,
+      icon: <Work />,
     }
   ];
 
@@ -128,7 +143,8 @@ const App = () => {
         </ul>
       ),
       technologies: "Linux, Python, React, Firebase, Raspberry Pi 4B",
-      link: "https://drive.google.com/file/d/1hQHtDuxxbzKnXdP6K1Ah6bIiN34tfdwe/view?usp=sharing"
+      link: "https://drive.google.com/file/d/1hQHtDuxxbzKnXdP6K1Ah6bIiN34tfdwe/view?usp=sharing",
+      icon: <Code />,
     },
     {
       title: "Multi-Threaded Data Analysis",
@@ -140,7 +156,8 @@ const App = () => {
         </ul>
       ),
       technologies: "Linux, Git, C++, TUI - ncurses C++ Library",
-      link: "https://github.com/n-noorul-mubeen/Multi-Threaded-Data-Analysis"
+      link: "https://github.com/n-noorul-mubeen/Multi-Threaded-Data-Analysis",
+      icon: <Code />,
     },
     {
       title: "Arduino Based Weather Monitoring System",
@@ -151,7 +168,8 @@ const App = () => {
         </ul>
       ),
       technologies: "Arduino, Arduino IDE, Weather Sensors",
-      link: "https://www.youtube.com/watch?v=QRG17Ypz66U"
+      link: "https://www.youtube.com/watch?v=QRG17Ypz66U",
+      icon: <Code />,
     },
     {
       title: "Analysis of Anomaly Detection Algorithms",
@@ -164,9 +182,11 @@ const App = () => {
         </ul>
       ),
       technologies: "Python, Scikit-learn, NumPy",
-      link: "https://github.com/ram-shankar58/Anamoly-detector"
+      link: "https://github.com/ram-shankar58/Anamoly-detector",
+      icon: <Code />,
     }
   ];
+
   const skills = {
     technicalSkills: {
       Languages: "Java, Python, C/C++, C#, SQL (MySQL), JavaScript, HTML/CSS, R, Rust, MATLAB",
@@ -187,6 +207,14 @@ const App = () => {
     "Awarded for scoring more than 95% in AISSCE."
   ];
 
+  const volunteering = [
+    {
+      title: "Password 2.0 Event Coordination",
+      description: "Coordinated marketing efforts for the PASSWORD 2.0 event organized by the Linux Club at VIT Chennai.",
+      icon: <VolunteerActivism />,
+    }
+  ];
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -195,7 +223,7 @@ const App = () => {
           <Typography variant="h6" style={{ flexGrow: 1 }}>
             Portfolio
           </Typography>
-          {['home', 'education', 'experience', 'projects', 'skills', 'achievements', 'contact'].map((section) => (
+          {['home', 'education', 'experience', 'projects', 'skills', 'achievements', 'volunteering', 'contact'].map((section) => (
             <Button color="inherit" key={section}>
               <ScrollLink to={section} smooth={true} duration={500}>
                 {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -207,176 +235,165 @@ const App = () => {
 
       <Container>
         <Element name="home">
-          <Card>
-            <CardContent>
-              <Typography variant="h3" component="h1" gutterBottom>
-                Noorul Mubeen Noorul Ameen
-              </Typography>
-              <Typography variant="h5" component="h2" gutterBottom>
-                Aspiring Software Engineer
-              </Typography>
-              <Typography variant="body1">
-                I am a third-year Computer Science Engineering student at Vellore Institute of Technology, Chennai Campus. Passionate about web development, machine learning, and creating impactful solutions through technology.
-              </Typography>
-            </CardContent>
-          </Card>
+          <Typography variant="h3" gutterBottom>
+            Noorul Mubeen Noorul Ameen
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            A passionate computer science student with experience in full-stack development, data analysis, and more.
+          </Typography>
         </Element>
 
         <Element name="education">
-          <Card>
-            <CardContent>
-              <Typography variant="h4" component="h2" gutterBottom>
-                Education
-              </Typography>
-              {education.map((edu, index) => (
-                <Card key={index} style={{ marginBottom: '20px' }}>
-                  <CardContent>
-                    <Typography variant="h5">{edu.degree}</Typography>
-                    <Typography variant="body2"><strong>Institution:</strong> {edu.institution}</Typography>
-                    <Typography variant="body2"><strong>Date:</strong> {edu.date}</Typography>
-                    {edu.cgpa && <Typography variant="body2"><strong>CGPA:</strong> {edu.cgpa}</Typography>}
-                    {edu.percentage && <Typography variant="body2"><strong>Percentage:</strong> {edu.percentage}</Typography>}
-                    {edu.coursework && <Typography variant="body2"><strong>Relevant Coursework:</strong> {edu.coursework}</Typography>}
-                  </CardContent>
-                </Card>
-              ))}
-            </CardContent>
-          </Card>
+          <Typography variant="h4" gutterBottom>
+            <School /> Education
+          </Typography>
+          {education.map((edu, index) => (
+            <Card key={index}>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  {edu.degree}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {edu.institution}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {edu.date}
+                </Typography>
+                {edu.cgpa && <Typography variant="body1">CGPA: {edu.cgpa}</Typography>}
+                {edu.percentage && <Typography variant="body1">Percentage: {edu.percentage}</Typography>}
+                {edu.coursework && <Typography variant="body1">Coursework: {edu.coursework}</Typography>}
+              </CardContent>
+            </Card>
+          ))}
         </Element>
 
         <Element name="experience">
-          <Card>
-            <CardContent>
-              <Typography variant="h4" component="h2" gutterBottom>
-                Experience
-              </Typography>
-              {experience.map((exp, index) => (
-                <Card key={index} style={{ marginBottom: '20px' }}>
-                  <CardContent>
-                    <Typography variant="h5">{exp.role}</Typography>
-                    <Typography variant="body2"><strong>Company:</strong> {exp.company}</Typography>
-                    <Typography variant="body2"><strong>Location:</strong> {exp.location}</Typography>
-                    <Typography variant="body2"><strong>Date:</strong> {exp.date}</Typography>
-                    <Typography variant="body2"><strong>Description:</strong></Typography>
-                    {exp.description}
-                    {exp.certificate && (
-                      <Box mt={2} display="flex" justifyContent="center">
-                        <img src={exp.certificate} alt="Internship Certificate" style={{ width: '80%', maxWidth: '600px', borderRadius: '8px' }} />
-                      </Box>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </CardContent>
-          </Card>
+          <Typography variant="h4" gutterBottom>
+            <Work /> Experience
+          </Typography>
+          {experience.map((exp, index) => (
+            <Card key={index}>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  {exp.role} - {exp.company}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {exp.location} | {exp.date}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {exp.description}
+                </Typography>
+                <Box textAlign="center">
+                  <img src={exp.certificate} alt="Internship Certificate" style={{ maxWidth: '100%', height: 'auto' }} />
+                </Box>
+              </CardContent>
+            </Card>
+          ))}
         </Element>
 
         <Element name="projects">
-  <Card>
-    <CardContent>
-      <Typography variant="h4" component="h2" gutterBottom>
-        Projects
-      </Typography>
-      {projects.map((proj, index) => (
-        <Card key={index} style={{ marginBottom: '20px' }}>
-          <CardContent>
-            <Typography variant="h5">{proj.title}</Typography>
-            <Typography variant="body2"><strong>Description:</strong></Typography>
-            {proj.description}
-            <Typography variant="body2"><strong>Technologies Used:</strong> {proj.technologies}</Typography>
-            <Button variant="contained" color="primary" href={proj.link} style={{ marginTop: '10px' }}>
-              View Project
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
-    </CardContent>
-  </Card>
-</Element>
+          <Typography variant="h4" gutterBottom>
+            <Code /> Projects
+          </Typography>
+          {projects.map((project, index) => (
+            <Card key={index}>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  {project.title}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {project.description}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  <strong>Technologies Used:</strong> {project.technologies}
+                </Typography>
+                <Button href={project.link} target="_blank" variant="contained">
+                  View Project
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </Element>
 
         <Element name="skills">
-          <Card>
-            <CardContent>
-              <Typography variant="h4" component="h2" gutterBottom>
-                Skills
-              </Typography>
-              <Card>
-                <CardContent>
-                  <Typography variant="h5">Technical Skills</Typography>
-                  <Typography variant="body1"><strong>Languages:</strong> {skills.technicalSkills.Languages}</Typography>
-                  <Typography variant="body1"><strong>Frameworks:</strong> {skills.technicalSkills.Frameworks}</Typography>
-                  <Typography variant="body1"><strong>Developer Tools:</strong> {skills.technicalSkills.DeveloperTools}</Typography>
-                  <Typography variant="body1"><strong>Libraries:</strong> {skills.technicalSkills.Libraries}</Typography>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent>
-                  <Typography variant="h5">Certifications</Typography>
-                  <List>
-                    {skills.certifications.map((cert, index) => (
-                      <ListItem key={index}>
-                        <ListItemText primary={cert} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </CardContent>
-              </Card>
-            </CardContent>
-          </Card>
+          <Typography variant="h4" gutterBottom>
+            <Star /> Skills
+          </Typography>
+          {Object.entries(skills.technicalSkills).map(([category, items]) => (
+            <Box key={category} mb={3}>
+              <Typography variant="h5">{category}</Typography>
+              <Typography variant="body1">{items}</Typography>
+            </Box>
+          ))}
+          <Typography variant="h5" gutterBottom>
+            Certifications
+          </Typography>
+          <List>
+            {skills.certifications.map((cert, index) => (
+              <ListItem key={index}>
+                <ListItemText primary={cert} />
+              </ListItem>
+            ))}
+          </List>
         </Element>
 
         <Element name="achievements">
-          <Card>
-            <CardContent>
-              <Typography variant="h4" component="h2" gutterBottom>
-                Achievements and Volunteering Works
-              </Typography>
-              <List>
-                {achievements.map((ach, index) => (
-                  <ListItem key={index}>
-                    <ListItemText primary={ach} />
-                  </ListItem>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
+          <Typography variant="h4" gutterBottom>
+            <Star /> Achievements
+          </Typography>
+          <List>
+            {achievements.map((achievement, index) => (
+              <ListItem key={index}>
+                <ListItemText primary={achievement} />
+              </ListItem>
+            ))}
+          </List>
+        </Element>
+
+        <Element name="volunteering">
+          <Typography variant="h4" gutterBottom>
+            <VolunteerActivism /> Volunteering Works
+          </Typography>
+          {volunteering.map((vol, index) => (
+            <Card key={index}>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  {vol.title}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  {vol.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
         </Element>
 
         <Element name="contact">
-          <Card>
-            <CardContent>
-              <Typography variant="h4" component="h2" gutterBottom>
-                Contact
-              </Typography>
-              <Grid container spacing={2}>
-                <Grid item>
-                  <Button variant="contained" color="secondary" href="mailto:noorulmubeen@example.com" startIcon={<Email />}>
-                    Email
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="contained" color="secondary" href="https://www.linkedin.com/in/noorul-mubeen/" target="_blank" rel="noopener noreferrer" startIcon={<LinkedIn />}>
-                    LinkedIn
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="contained" color="secondary" href="https://github.com/n-noorul-mubeen" target="_blank" rel="noopener noreferrer" startIcon={<GitHub />}>
-                    GitHub
-                  </Button>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
+          <Typography variant="h4" gutterBottom>
+            <Email /> Contact Me
+          </Typography>
+          <Box textAlign="center" mb={4}>
+            <IconButton color="inherit" href="mailto:your.email@example.com" target="_blank">
+              <Email />
+            </IconButton>
+            <IconButton color="inherit" href="https://www.linkedin.com/in/noorul-mubeen/" target="_blank">
+              <LinkedIn />
+            </IconButton>
+            <IconButton color="inherit" href="https://github.com/n-noorul-mubeen" target="_blank">
+              <GitHub />
+            </IconButton>
+          </Box>
+          <Typography variant="body1" align="center">
+            Feel free to reach out to me via email or connect with me on LinkedIn and GitHub.
+          </Typography>
         </Element>
       </Container>
 
-      <footer>
-        <Box className="MuiFooter-root">
-          <Typography variant="body2">
-            © 2024 Noorul Mubeen. All rights reserved.
-          </Typography>
-        </Box>
-      </footer>
+      <Box component="footer" sx={{ mt: 4, py: 3, textAlign: 'center', backgroundColor: theme.palette.primary.main, color: '#FFFFFF' }}>
+        <Typography variant="body2">
+          &copy; {new Date().getFullYear()} Noorul Mubeen Noorul Ameen. All rights reserved.
+        </Typography>
+      </Box>
     </ThemeProvider>
   );
 };
