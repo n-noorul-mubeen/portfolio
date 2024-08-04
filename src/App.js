@@ -210,7 +210,7 @@ const App = () => {
           <Card>
             <CardContent>
               <Typography variant="h3" component="h1" gutterBottom>
-                Noorul Mubeen
+                Noorul Mubeen Noorul Ameen
               </Typography>
               <Typography variant="h5" component="h2" gutterBottom>
                 Aspiring Software Engineer
